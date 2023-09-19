@@ -126,3 +126,60 @@ package main
 // Answer: c. Anonymous functions allow you to define and use functions without cluttering the global scope and can capture variables from their enclosing scope.
 
 // Explanation: Anonymous functions are advantageous in scenarios where you want to define and use functions without polluting the global scope, and they can capture variables from their surrounding lexical scope, making them versatile for various use cases.
+
+// Question 6:Predict the output
+
+// package main
+// import "fmt"
+// func delayedGreeting(name string) func() {
+//   return func() {
+//     fmt.Println("Hello, " + name + "!")
+//   }
+// }
+// func main() {
+//   greet := delayedGreeting("Alice")
+//   defer greet()
+//   fmt.Println("Welcome!")
+// }
+
+// a. Hello Alice welcome!
+// b. Hello Alice
+//    Welcome!
+// c. Wecome!
+//    Hello Alice !
+// d. Welcome! Hello Alice !
+// Answer : c. Wecome!
+//             Hello Alice !
+
+
+// Question 7:Predict the output
+// package main
+// import "fmt"
+// func adder() func(int) int {
+//   sum := 0
+//   return func(x int) int {
+//     sum += x
+//     return sum
+//   }
+// }
+// func main() {
+//   add := adder()
+//   fmt.Println(add(1))
+//   fmt.Println(add(2)) 
+//   fmt.Println(add(3)) 
+// }
+
+// a. 1 3 6
+// b. 1
+//    3  
+//    6
+// c. 1
+//    6
+//    3
+// d.1 6 3
+
+// Answer : b. 1
+//             3  
+//             6
+
+
