@@ -126,3 +126,120 @@ package main
 // Answer: c. Anonymous functions allow you to define and use functions without cluttering the global scope and can capture variables from their enclosing scope.
 
 // Explanation: Anonymous functions are advantageous in scenarios where you want to define and use functions without polluting the global scope, and they can capture variables from their surrounding lexical scope, making them versatile for various use cases.
+
+
+1.
+package main
+
+
+import "fmt"
+
+
+func delayedGreeting(name string) func() {
+return func() {
+fmt.Println("Hello, " + name + "!")
+}
+}
+
+
+func main() {
+greet := delayedGreeting("Alice")
+defer greet()
+fmt.Println("Welcome!")
+}
+
+
+2.
+package main
+
+
+import "fmt"
+
+
+func adder() func(int) int {
+sum := 0
+return func(x int) int {
+sum += x
+return sum
+}
+}
+
+
+func main() {
+add := adder()
+fmt.Println(add(1)) // 1
+fmt.Println(add(2)) // 3
+fmt.Println(add(3)) // 6
+}
+
+3. 
+package main
+
+
+import (
+"fmt"
+)
+
+
+func main() {
+x := 10
+
+
+func(a int) {
+x += a
+fmt.Println(x)
+}(5)
+
+
+fmt.Println(x)
+}
+
+4. 
+package main
+
+
+import (
+"fmt"
+)
+
+
+func main() {
+x := 5
+y := 7
+
+
+add := func(a, b int) int {
+return a + b
+}
+
+
+result := add(x, y)
+
+
+fmt.Println(result)
+}
+
+5. 
+package main
+
+
+import (
+"fmt"
+)
+
+
+func main() {
+x := 10
+
+
+for i := 1; i <= 5; i++ {
+func() {
+x += i
+}()
+}
+
+
+fmt.Println(x)
+}
+
+
